@@ -3,7 +3,14 @@
   "version": "0.0.1",
   "main": "index.js",
   "scripts": {
-    "test": "cross-env NODE_ENV=testing jest --verbose --runInBand --silent"
+    "test": "cross-env NODE_ENV=testing jest --verbose --runInBand --silent",
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "migrateup": "knex migrate:up",
+    "migratedown": "knex migrate:down",
+    "rollback": "knex migrate:rollback",
+    "migrate": "knex migrate:latest",
+    "seed": "knex seed:run"
   },
   "repository": {
     "type": "git",
@@ -14,9 +21,12 @@
     "cross-env": "7.0.3",
     "eslint": "8.14.0",
     "jest": "28.1.0",
+    "nodemon": "^2.0.15",
     "supertest": "6.2.3"
   },
   "dependencies": {
+    "express": "^4.17.1",
+    "knex": "^0.95.15",
     "sqlite3": "^5.0.8"
   }
 }
